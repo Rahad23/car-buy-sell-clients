@@ -4,9 +4,11 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import { CarContext } from './../contextApi/ContextApi';
 import { toast } from 'react-toastify';
+import { FcGoogle } from 'react-icons/fc';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const {loginUserEmailPassword, userData}=useContext(CarContext);
+    const {loginUserEmailPassword, userData, googlePopUp}=useContext(CarContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const navigate= useNavigate();
     if(userData && userData?.email){
@@ -28,6 +30,30 @@ const Login = () => {
             toast.error(errorMessage);
           });
         
+    }
+    // user login google popup
+    const googlePopupLogin=()=>{
+        googlePopUp()
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            toast.success('login successfully');
+            navigate('/');
+            // ...
+          }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            toast.error(errorMessage);
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+          });
     }
     return (
         <div>
@@ -61,6 +87,10 @@ const Login = () => {
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
+        </div>
+        <div className="divider">OR</div>
+        <div className="form-control mt-6">
+          <button onClick={googlePopupLogin} className="btn bg-[#8D9EFF] border-none font-bold text-slate-800 hover:bg-[#9ba9fa]"><FcGoogle className='text-4xl mr-1'></FcGoogle>continue with google</button>
         </div>
         </form>
       </div>

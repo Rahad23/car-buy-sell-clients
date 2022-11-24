@@ -1,11 +1,13 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
+import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { CarContext } from './../contextApi/ContextApi';
 const Register = () => {
     // context use 
-    const {createUserEmailPassword, userData} = useContext(CarContext);
+    const {createUserEmailPassword, userData, googlePopUp} = useContext(CarContext);
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const navigate =useNavigate();
     if(userData && userData?.email){
@@ -26,6 +28,29 @@ const Register = () => {
             const errorMessage = error.message;
             toast.error(errorMessage);
             // ..
+          });
+    }
+    // login user with google popup
+    const googlePouplogin=()=>{
+        googlePopUp()
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            toast.success('login successfully');
+            // ...
+          }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            toast.error(errorMessage);
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
           });
     }
     return (
@@ -66,6 +91,10 @@ const Register = () => {
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary" type='submit'>Register</button>
+        </div>
+        <div className="divider">OR</div>
+        <div className="form-control mt-6">
+          <button onClick={googlePouplogin} className="btn bg-[#8D9EFF] border-none font-bold text-slate-800 hover:bg-[#9ba9fa]"><FcGoogle className='text-4xl mr-1'></FcGoogle>continue with google</button>
         </div>
       </form>
       </div>
