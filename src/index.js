@@ -3,12 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ContextApi from './component/contextApi/ContextApi';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <>
+  <ToastContainer 
+  position='top-center'
+  />
   <React.StrictMode>
-    <App />
+    <ContextApi>
+      <App />
+    </ContextApi>
   </React.StrictMode>
+  </>
+ 
 );
 
 // If you want to start measuring performance in your app, pass a function

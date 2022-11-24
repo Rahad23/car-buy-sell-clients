@@ -1,0 +1,8 @@
+.set-overlay::after{
+    content:'';
+    position:absolute;
+    left:0; top:0;
+    width:100%; height:100%;
+    display:inline-block;
+    background: linear-gradient(90deg, rgba(12, 19, 14, 0.2) 10%, rgba(22, 20, 20, 0) 100%);
+}
