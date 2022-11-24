@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import app from './../../firebase/Firebase.init';
 
 export const CarContext=createContext();
@@ -25,6 +25,10 @@ const [userData, setUserData]=useState('');
         setLoader(true);
         return signInWithPopup(auth, googleProvider);
     }
+    // sign-out user
+    const signOutuser=()=>{
+        return signOut(auth);
+    }
     // user track
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, user=>{
@@ -39,7 +43,8 @@ const [userData, setUserData]=useState('');
         loginUserEmailPassword,
         googlePopUp,
         loader,
-        userData
+        userData,
+        signOutuser
     };
     return (
         <CarContext.Provider value={provider}>

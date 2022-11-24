@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../Assets/logo/logo.png';
+import { CarContext } from './../contextApi/ContextApi';
 const Navebar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {userData, signOutuser}=useContext(CarContext);
+  const logOut=()=>{
+    signOutuser()
+    .then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
   return (
     <div className="bg-[#1B1B1B]">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <Link
-            href="/"
+            to="/"
             aria-label="Company"
             title="Company"
             className="inline-flex items-center"
@@ -47,6 +57,17 @@ const Navebar = () => {
               </a>
             </li>
             <li>
+              {
+                userData && userData?.email ? 
+                <Link
+                onClick={logOut}
+                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#a70505] hover:bg-[#E20000] focus:shadow-outline focus:outline-none"
+                aria-label="Sign up"
+                title="Sign up"
+              >
+                Log-out
+              </Link>
+              :
               <Link
                 to="/login"
                 className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#a70505] hover:bg-[#E20000] focus:shadow-outline focus:outline-none"
@@ -55,6 +76,7 @@ const Navebar = () => {
               >
                 Log-in
               </Link>
+              }
             </li>
           </ul>
           <div className="lg:hidden z-50">
