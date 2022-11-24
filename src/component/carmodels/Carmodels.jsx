@@ -4,7 +4,7 @@ import Card from './carModelsCard/Card';
 const Carmodels = () => {
     const [carData, setCarData] = useState([]);
     useEffect(()=>{
-        fetch('car.json')
+        fetch('http://localhost:5000/carQuality')
         .then(res=>res.json())
         .then(data=>setCarData(data))
     },[])
