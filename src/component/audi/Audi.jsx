@@ -1,17 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
-import BmwCard from './bmwCard/BmwCard';
+import AudiCard from './audiCard/AudiCard';
 
-const BmwCollection = () => {
-const [data, setData]=useState([]);
-const [loader, setLoader]=useState(true);
+const Audi = () => {
+    const [data, setData]=useState([]);
+    const [loader, setLoader] =useState(true);
 // console.log(data);
     useEffect(()=>{
-        fetch('http://localhost:5000/bmw')
+        fetch('http://localhost:5000/audi')
         .then(res=>res.json())
         .then(data=>setData(data))
     },[])
-
     return (
         <>
         {
@@ -19,11 +17,11 @@ const [loader, setLoader]=useState(true);
         }
         <div className='grid grid-cols-3 container mx-auto gap-8 mt-28'>
             {
-                data.map(data=><BmwCard key={data?._id} loader={setLoader} data={data}></BmwCard>)
+                data.map(data=><AudiCard loader={setLoader} key={data?._id} data={data} ></AudiCard>)
             }
         </div>
         </>
     );
 };
 
-export default BmwCollection;
+export default Audi;

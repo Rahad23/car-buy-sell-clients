@@ -1,0 +1,67 @@
+[
+    {
+        "series": "1 Series (F40)",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgjRJ57vGHRY-CGLIk5pST6mfT79mpqyN0PQ&usqp=CAU",
+        "details":"Aston Martin is a modern, exclusive sports car brand with a unique heritage instantly recognised around the world. Founded in 1913 by Lionel Martin and Robert Bamford, Aston Martin is acknowledged as an iconic global brand synonymous with style, luxury, performance and exclusivity.",
+        "introducedYear": 2004,
+        "price": 11000,
+        "introduction": 2019,
+        "userName": "jac",
+        "user":true,
+        "submitTime":"1-Nov-2022",
+        "phone":"0174725855",
+        "company":"ASTON"
+    },
+    {
+        "series": "1 Series (F52)",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfM66USY0Ej7gthMHTZ6yXDW7KUAFUtfRaEw&usqp=CAU",
+        "details":"Aston Martin is a modern, exclusive sports car brand with a unique heritage instantly recognised around the world. Founded in 1913 by Lionel Martin and Robert Bamford, Aston Martin is acknowledged as an iconic global brand synonymous with style, luxury, performance and exclusivity.",
+        "introducedYear": 2017,
+        "price": 13000,
+        "introduction": 2017,
+        "userName": "maical",
+        "user":true,
+        "submitTime":"1-Nov-2022",
+        "phone":"0174725855",
+        "company":"ASTON"
+    },
+    {
+        "series": "2 Series Gran Coupé",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHM2SD_qLOe9NstfqldyZ05BBaJ-7beuzKDw&usqp=CAU",
+        "details":"Aston Martin is a modern, exclusive sports car brand with a unique heritage instantly recognised around the world. Founded in 1913 by Lionel Martin and Robert Bamford, Aston Martin is acknowledged as an iconic global brand synonymous with style, luxury, performance and exclusivity.",
+        "introducedYear": 2020,
+        "price": 15000,
+        "introduction": 2020,
+        "userName": "siddik",
+        "user":true,
+        "submitTime":"1-Nov-2022",
+        "phone":"0174725855",
+        "company":"ASTON"
+    },
+    {
+        "series": "2 Series",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGmFyHjAsx_lnp3gEimdxbKq9pjyhCOk26zw&usqp=CAU",
+        "details":"Aston Martin is a modern, exclusive sports car brand with a unique heritage instantly recognised around the world. Founded in 1913 by Lionel Martin and Robert Bamford, Aston Martin is acknowledged as an iconic global brand synonymous with style, luxury, performance and exclusivity.",
+        "introducedYear": 2014,
+        "price": 90000,
+        "introduction": 2021,
+        "userName": "Manik",
+        "user":true,
+        "submitTime":"1-Nov-2022",
+        "phone":"0174725855",
+        "company":"ASTON"
+    },
+    {
+        "series": "3 Series",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm3wCafw7bDl2Ct3feE4krJZSMfr91pnblZg&usqp=CAU",
+        "details":"Aston Martin is a modern, exclusive sports car brand with a unique heritage instantly recognised around the world. Founded in 1913 by Lionel Martin and Robert Bamford, Aston Martin is acknowledged as an iconic global brand synonymous with style, luxury, performance and exclusivity.",
+        "introducedYear": 1975,
+        "price": 4000,
+        "introduction": 2018,
+        "userName": "Love",
+        "user":true,
+        "submitTime":"1-Nov-2022",
+        "phone":"0174725855",
+        "company":"ASTON"
+    }
+]

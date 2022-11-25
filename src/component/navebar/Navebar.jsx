@@ -4,7 +4,9 @@ import logo from '../../Assets/logo/logo.png';
 import { CarContext } from './../contextApi/ContextApi';
 const Navebar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const {userData, signOutuser}=useContext(CarContext);
+  const {userData, signOutuser,serverUser}=useContext(CarContext);
+  const {email,fullName,select,_id}=serverUser;
+  // console.log(serverUser)
   const logOut=()=>{
     signOutuser()
     .then(() => {
@@ -27,24 +29,54 @@ const Navebar = () => {
           </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
-              <a
-                href="/"
+              <Link
+                to="/"
                 aria-label="Our product"
                 title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
                 Home
-              </a>
+              </Link>
             </li>
+            {
+              userData && userData?.email ?
+              <li>
+
+              {
+  
+                select === "Buyer" ? <Link
+                to="/myOrder"
+                aria-label="Our product"
+                title="Our product"
+                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+              >
+                My-Order
+              </Link>
+              : 
+              <Link
+              to="/addProduct"
+              aria-label="Our product"
+              title="Our product"
+              className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+            >
+              Add-Product
+            </Link>
+              }
+               
+              </li>
+              :
+              ""
+            }
+            
             <li>
-              <a
-                href="/"
+              <Link
+                to="/"
                 aria-label="Our product"
                 title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
               <a

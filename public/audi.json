@@ -1,0 +1,67 @@
+[
+    {
+        "series": "1 Series (F40)",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdtxYBcsKv0Imu8-nrw5YkZJOPUSVaqIhkpw&usqp=CAU",
+        "details":"What is unique about Audi car? Audi brand automobiles have been around for more than 100 years, building upon a progressive line of innovative luxury vehicles. What makes Audi cars unique from other manufacturers is their commitment to excellence, elegance, and winning features that you won't find anywhere else.",
+        "introducedYear": 2004,
+        "price": 100000,
+        "introduction": 2019,
+        "userName": "jac",
+        "user":true,
+        "submitTime":"1-Nov-2022",
+        "phone":"0174725855",
+        "company":"AUDI"
+    },
+    {
+        "series": "1 Series (F52)",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzscvIFSX7otBT0O92EizF_9p8Vg5E8Ku19w&usqp=CAU",
+        "details":"What is unique about Audi car? Audi brand automobiles have been around for more than 100 years, building upon a progressive line of innovative luxury vehicles. What makes Audi cars unique from other manufacturers is their commitment to excellence, elegance, and winning features that you won't find anywhere else.",
+        "introducedYear": 2017,
+        "price": 90000,
+        "introduction": 2017,
+        "userName": "maical",
+        "user":true,
+        "submitTime":"1-Nov-2022",
+        "phone":"0174725855",
+        "company":"AUDI"
+    },
+    {
+        "series": "2 Series Gran Coupé",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD1Guzxc5AHUbJf6TXiFjv0f1Vzy-xkKN12g&usqp=CAU",
+        "details":"What is unique about Audi car? Audi brand automobiles have been around for more than 100 years, building upon a progressive line of innovative luxury vehicles. What makes Audi cars unique from other manufacturers is their commitment to excellence, elegance, and winning features that you won't find anywhere else.",
+        "introducedYear": 2020,
+        "price": 30000,
+        "introduction": 2020,
+        "userName": "siddik",
+        "user":true,
+        "submitTime":"1-Nov-2022",
+        "phone":"0174725855",
+        "company":"AUDI"
+    },
+    {
+        "series": "2 Series",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZCk1k202lrYqGYwrCQK9DuUn0mUOTGQSZLw&usqp=CAU",
+        "details":"What is unique about Audi car? Audi brand automobiles have been around for more than 100 years, building upon a progressive line of innovative luxury vehicles. What makes Audi cars unique from other manufacturers is their commitment to excellence, elegance, and winning features that you won't find anywhere else.",
+        "introducedYear": 2014,
+        "price": 30000,
+        "introduction": 2021,
+        "userName": "Manik",
+        "user":true,
+        "submitTime":"1-Nov-2022",
+        "phone":"0174725855",
+        "company":"AUDI"
+    },
+    {
+        "series": "3 Series",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJAbydgZpwsXQod0LFHay3brlHrqsdsdFa3w&usqp=CAU",
+        "details":"What is unique about Audi car? Audi brand automobiles have been around for more than 100 years, building upon a progressive line of innovative luxury vehicles. What makes Audi cars unique from other manufacturers is their commitment to excellence, elegance, and winning features that you won't find anywhere else.",
+        "introducedYear": 1975,
+        "price":25000,
+        "introduction": 2018,
+        "userName": "Love",
+        "user":true,
+        "submitTime":"1-Nov-2022",
+        "phone":"0174725855",
+        "company":"AUDI"
+    }
+]

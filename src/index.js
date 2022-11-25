@@ -6,7 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ContextApi from './component/contextApi/ContextApi';
-
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
@@ -14,9 +15,11 @@ root.render(
   position='top-center'
   />
   <React.StrictMode>
-    <ContextApi>
+  <QueryClientProvider client={queryClient}>
+  <ContextApi>
       <App />
     </ContextApi>
+  </QueryClientProvider>
   </React.StrictMode>
   </>
  

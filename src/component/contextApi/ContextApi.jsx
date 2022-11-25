@@ -10,6 +10,8 @@ const ContextApi = ({children}) => {
 const [loader, setLoader]=useState(true);
 // userData
 const [userData, setUserData]=useState('');
+// user type data get database
+const [serverUser, setServerUsesr]= useState([]);
     // create user email and password
     const createUserEmailPassword=(email, password)=>{
         setLoader(true);
@@ -38,13 +40,23 @@ const [userData, setUserData]=useState('');
         return ()=>unsubscribe();
     },[])
 
+    // user data
+    useEffect(()=>{
+        if(userData?.email){
+            fetch(`http://localhost:5000/users/${userData?.email}`)
+            .then(res=>res.json())
+            .then(data=>setServerUsesr(data))
+        }
+    },[userData?.email])
+
     const provider = {
         createUserEmailPassword,
         loginUserEmailPassword,
         googlePopUp,
         loader,
         userData,
-        signOutuser
+        signOutuser,
+        serverUser
     };
     return (
         <CarContext.Provider value={provider}>
