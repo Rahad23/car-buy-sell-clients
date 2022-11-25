@@ -67,7 +67,35 @@ const Navebar = () => {
               :
               ""
             }
-            
+            {
+              userData && userData?.email ?
+              <li>
+
+              {
+  
+                select === "Buyer" ? <Link
+                to="/myOrder"
+                aria-label="Our product"
+                title="Our product"
+                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+              >
+                My-Order
+              </Link>
+              : 
+              <Link
+              to="/myBuyers"
+              aria-label="Our product"
+              title="Our product"
+              className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+            >
+              My-Buyers
+            </Link>
+              }
+               
+              </li>
+              :
+              ""
+            }
             <li>
               <Link
                 to="/"
