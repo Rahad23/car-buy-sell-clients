@@ -24,7 +24,7 @@ const TotalOrder = () => {
     }
     return (
         <div className='container mx-auto mt-20'>
-            <h1 className='text-2xl text-center mb-8 font-semibold text-slate-900'>My Orders</h1>
+            <h1 className='text-2xl text-center mb-8 font-semibold text-slate-900'>Customer-Order</h1>
             <div className="overflow-x-auto">
                 {
                     totalOrder.length >0 ? 

@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { CarContext } from './../contextApi/ContextApi';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
-import { useQuery } from '@tanstack/react-query';
-import { reload } from 'firebase/auth';
+// import { useQuery } from '@tanstack/react-query';
+// import { reload } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 const ModalBooking = ({data, modalClose}) => {
@@ -15,7 +15,11 @@ const ModalBooking = ({data, modalClose}) => {
     const {select, fullName, email} = ServerUser;
     useEffect(()=>{
         if(userData?.email){
-            fetch(`http://localhost:5000/users/${userData?.email}`)
+            fetch(`http://localhost:5000/users/${userData?.email}`,{
+              headers:{
+                authorization: `bearer ${localStorage.getItem('myKey')}`
+            }
+            })
             .then(res=>res.json())
             .then(data=>setServerUser(data))
         }

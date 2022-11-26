@@ -41,6 +41,28 @@ const AudiCars = () => {
           });
 
      }
+// advertisement api post data
+const showAdvertis=(id)=>{
+    fetch(`http://localhost:5000/audi/${id}`)
+    .then(res=>res.json())
+    .then(data=>{
+     fetch('http://localhost:5000/advertise',{
+         method: "POST",
+         headers:{
+             'content-type':'application/json',
+         },
+         body: JSON.stringify(data),
+     })
+     .then(res=>res.json())
+     .then(data=>{
+        if(data?.acknowledged){
+            swal("Make Admin", "Admin created successfully", "success");
+        }
+    })
+     // console.log(data)
+ })
+ }
+
     return (
         <div className='container mx-auto mt-10'>
             <div className="overflow-x-auto">
@@ -54,6 +76,7 @@ const AudiCars = () => {
                             <th>uses</th>
                             <th>price</th>
                             <th>Action</th>
+                            <th>Advertisement</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,6 +92,9 @@ const AudiCars = () => {
                                         <td>{data?.introducedYear}-{data?.introduction}</td>
                                         <td>${data?.price}</td>
                                         <td><button onClick={() => orderDataHandle(data?._id)} className="btn btn-sm bg-red-600 border-none">delete</button></td>
+                                        <td>
+                                    <button onClick={() => showAdvertis(data?._id)} className="btn btn-sm hover:bg-green-700 bg-green-600 border-none">show-add</button>
+                                    </td>
                                     </tr>
                             )
                         }
