@@ -3,6 +3,9 @@ import { createBrowserRouter } from "react-router-dom";
 import CarDetailsBmw from "../bmw/bmwCarDetails/CarBmwdetails";
 import BmwCollection from "../bmw/BmwCollection";
 import AddProduct from "../component/addProduct/AddProduct";
+import AstonMartinCar from "../component/adminAllcars/astonCars/AstonMartinCar";
+import AudiCars from "../component/adminAllcars/audiCars/AudiCars";
+import BmwCars from "../component/adminAllcars/bmwCars/BmwCars";
 import AllUsers from "../component/allUsers/AllUsers";
 import AstonMartin from "../component/astonMartin/AstonMartin";
 import AstonMartinDetailCard from "../component/astonMartin/astonMartinDetailCard/AstonMartinDetailCard";
@@ -84,6 +87,18 @@ const router = createBrowserRouter([
             {
                 path: '/totalOrder',
                 element:<PrivateRoute><TotalOrder></TotalOrder></PrivateRoute>
+            },
+            {
+                path: '/adminBmw',
+                element: <BmwCars></BmwCars>
+            },
+            {
+                path: '/adminAudi',
+                element: <AudiCars></AudiCars>
+            },
+            {
+                path: '/adminAston',
+                element: <AstonMartinCar></AstonMartinCar>
             }
         ]
     }

@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { BiChevronDown } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import logo from '../../Assets/logo/logo.png';
 import { CarContext } from './../contextApi/ContextApi';
@@ -77,6 +78,7 @@ const Navebar = () => {
             }
              </>
             }
+            
             {
               userData && userData?.email &&
               <>
@@ -122,6 +124,31 @@ select === "Seller" &&
                 Users
               </Link>
             </li>
+            }
+            {
+              userData && userData?.email &&
+             <>
+              { serverUser?.role &&
+              <li className='dropdown'>
+                <label tabIndex={0}  aria-label="Our product"
+                title="Our product"
+                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 cursor-pointer flex items-center">Cars <BiChevronDown className='font-medium text-gray-100 transition-colors duration-200 hover:text-teal-accent-400'></BiChevronDown></label>
+                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                    <li className='text-md text-slate-900 font-semibold'><Link to={'/adminBmw'}>BMW</Link></li>
+                    <li className='text-md text-slate-900 font-semibold'><Link to={'/adminAudi'}>AUDI</Link></li>
+                    <li className='text-md text-slate-900 font-semibold'><Link to={'/adminAston'}>ASTON-MARTIN</Link></li>
+             </ul>
+                {/* <Link
+                to="/totalOrder"
+                aria-label="Our product"
+                title="Our product"
+                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+              >
+                
+              </Link> */}
+              </li>
+            }
+             </>
             }
             <li>
               <Link
