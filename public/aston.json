@@ -10,7 +10,8 @@
         "user":true,
         "submitTime":"1-Nov-2022",
         "phone":"0174725855",
-        "company":"ASTON"
+        "company":"ASTON",
+        "sellerEmail":"dfdk@gmail.com"
     },
     {
         "series": "1 Series (F52)",
@@ -23,7 +24,8 @@
         "user":true,
         "submitTime":"1-Nov-2022",
         "phone":"0174725855",
-        "company":"ASTON"
+        "company":"ASTON",
+        "sellerEmail":"dfdk@gmail.com"
     },
     {
         "series": "2 Series Gran Coupé",
@@ -36,7 +38,8 @@
         "user":true,
         "submitTime":"1-Nov-2022",
         "phone":"0174725855",
-        "company":"ASTON"
+        "company":"ASTON",
+        "sellerEmail":"dfdk@gmail.com"
     },
     {
         "series": "2 Series",
@@ -49,7 +52,8 @@
         "user":true,
         "submitTime":"1-Nov-2022",
         "phone":"0174725855",
-        "company":"ASTON"
+        "company":"ASTON",
+        "sellerEmail":"dfdk@gmail.com"
     },
     {
         "series": "3 Series",
@@ -62,6 +66,7 @@
         "user":true,
         "submitTime":"1-Nov-2022",
         "phone":"0174725855",
-        "company":"ASTON"
+        "company":"ASTON",
+        "sellerEmail":"dfdk@gmail.com"
     }
 ]

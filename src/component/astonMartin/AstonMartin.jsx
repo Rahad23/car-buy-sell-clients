@@ -6,7 +6,11 @@ const AstonMartin = () => {
     const [loader, setLoader] =useState(true);
     // console.log(data);
         useEffect(()=>{
-            fetch('http://localhost:5000/astonMartin')
+            fetch('http://localhost:5000/astonMartin',{
+                headers:{
+                    authorization: `bearer ${localStorage.getItem('myKey')}`
+                }
+            })
             .then(res=>res.json())
             .then(data=>setData(data))
         },[])

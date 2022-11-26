@@ -43,7 +43,11 @@ const [serverUser, setServerUsesr]= useState([]);
     // user data
     useEffect(()=>{
         if(userData?.email){
-            fetch(`http://localhost:5000/users/${userData?.email}`)
+            fetch(`http://localhost:5000/users/${userData?.email}`,{
+                headers:{
+                    authorization: `bearer ${localStorage.getItem('myKey')}`
+                }
+            })
             .then(res=>res.json())
             .then(data=>setServerUsesr(data))
         }

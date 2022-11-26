@@ -39,12 +39,14 @@ const Navebar = () => {
               </Link>
             </li>
             {
-              userData && userData?.email ?
-              <li>
-
+              userData && userData?.email &&
+             <>
+              { select === "Buyer" && 
+              <>
               {
-  
-                select === "Buyer" ? <Link
+                serverUser?.role ? '' :
+                <li>
+                <Link
                 to="/myOrder"
                 aria-label="Our product"
                 title="Our product"
@@ -52,49 +54,74 @@ const Navebar = () => {
               >
                 My-Order
               </Link>
-              : 
-              <Link
-              to="/addProduct"
-              aria-label="Our product"
-              title="Our product"
-              className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-            >
-              Add-Product
-            </Link>
-              }
-               
               </li>
-              :
-              ""
+              }
+              </>
+            }
+             </>
             }
             {
-              userData && userData?.email ?
+              userData && userData?.email &&
+             <>
+              { serverUser?.role &&
               <li>
-
-              {
-  
-                select === "Buyer" ? <Link
-                to="/myOrder"
+                <Link
+                to="/totalOrder"
                 aria-label="Our product"
                 title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
-                My-Order
+                Total-Order
               </Link>
-              : 
-              <Link
-              to="/myBuyers"
-              aria-label="Our product"
-              title="Our product"
-              className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-            >
-              My-Buyers
-            </Link>
-              }
-               
               </li>
-              :
-              ""
+            }
+             </>
+            }
+            {
+              userData && userData?.email &&
+              <>
+              {
+            //     <li>
+            //   <Link
+            //   to="/myProduct"
+            //   aria-label="Our product"
+            //   title="Our product"
+            //   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+            // >
+            //   My-Product
+            // </Link>
+            // </li>
+}
+            
+              </>
+}
+
+  {
+select === "Seller" &&
+  <li>
+  <Link
+  to="/addProduct"
+  aria-label="Our product"
+  title="Our product"
+  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+>
+  Add-Product
+</Link>
+</li>}
+ 
+               
+            {
+              serverUser?.role &&
+              <li>
+              <Link
+                to="/users"
+                aria-label="Our product"
+                title="Our product"
+                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+              >
+                Users
+              </Link>
+            </li>
             }
             <li>
               <Link

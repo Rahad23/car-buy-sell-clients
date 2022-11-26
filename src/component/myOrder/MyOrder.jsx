@@ -8,7 +8,11 @@ const {userData,serverUser} = useContext(CarContext);
   const navigate = useNavigate();
     const {  data:myOrder = [], refetch, isLoading } = useQuery({
         queryKey: ['myOrder', userData?.email],
-         queryFn: async()=> fetch(`http://localhost:5000/myOrder/${userData?.email}`)
+         queryFn: async()=> fetch(`http://localhost:5000/myOrder/${userData?.email}`,{
+            headers:{
+                authorization: `bearer ${localStorage.getItem('myKey')}`
+            }
+         })
         .then(res=>res.json())
     })
     if(serverUser?.select!=="Buyer"){

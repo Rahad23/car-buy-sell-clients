@@ -12,7 +12,7 @@ const ModalBooking = ({data, modalClose}) => {
     const {details,img,phone,price,series,submitTime,userName,_id, company}=data;
     const {userData} = useContext(CarContext);
     const [ServerUser, setServerUser] = useState([]);
-    const {select,fullName,email} = ServerUser;
+    const {select, fullName, email} = ServerUser;
     useEffect(()=>{
         if(userData?.email){
             fetch(`http://localhost:5000/users/${userData?.email}`)

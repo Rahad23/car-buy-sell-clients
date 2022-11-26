@@ -6,7 +6,11 @@ const Audi = () => {
     const [loader, setLoader] =useState(true);
 // console.log(data);
     useEffect(()=>{
-        fetch('http://localhost:5000/audi')
+        fetch('http://localhost:5000/audi',{
+            headers:{
+                authorization: `bearer ${localStorage.getItem('myKey')}`
+            }
+        })
         .then(res=>res.json())
         .then(data=>setData(data))
     },[])

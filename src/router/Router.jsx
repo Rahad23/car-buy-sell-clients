@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import CarDetailsBmw from "../bmw/bmwCarDetails/CarBmwdetails";
 import BmwCollection from "../bmw/BmwCollection";
 import AddProduct from "../component/addProduct/AddProduct";
+import AllUsers from "../component/allUsers/AllUsers";
 import AstonMartin from "../component/astonMartin/AstonMartin";
 import AstonMartinDetailCard from "../component/astonMartin/astonMartinDetailCard/AstonMartinDetailCard";
 import Audi from "../component/audi/Audi";
@@ -11,8 +12,12 @@ import CarDetails from "../component/carDetails/CarDetails";
 import ErrorPage from "../component/errorPage/ErrorPage";
 import Home from "../component/home/Home";
 import Login from "../component/login/Login";
+// import MyBuyers from "../component/myBuyers/MyBuyers";
 import MyOrder from "../component/myOrder/MyOrder";
+import MyProduct from "../component/myProduct/MyProduct";
+import PrivateRoute from "../component/privateRoute/PrivateRoute";
 import Register from "../component/register/Register";
+import TotalOrder from "../component/totalOrder/TotalOrder";
 import Main from './../component/main/Main';
 
 const router = createBrowserRouter([
@@ -62,11 +67,23 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myOrder',
-                element: <MyOrder></MyOrder>
+                element: <PrivateRoute><MyOrder></MyOrder></PrivateRoute>
             },
             {
                 path: '/addProduct',
-                element: <AddProduct></AddProduct>
+                element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+            },
+            {
+                path: '/myProduct',
+                element:<PrivateRoute><MyProduct></MyProduct></PrivateRoute>
+            },
+            {
+                path:'/users',
+                element: <PrivateRoute><AllUsers></AllUsers></PrivateRoute>
+            },
+            {
+                path: '/totalOrder',
+                element:<PrivateRoute><TotalOrder></TotalOrder></PrivateRoute>
             }
         ]
     }

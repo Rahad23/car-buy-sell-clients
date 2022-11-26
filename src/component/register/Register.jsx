@@ -5,9 +5,10 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { CarContext } from './../contextApi/ContextApi';
+import swal from 'sweetalert';
 const Register = () => {
     // context use 
-    const {createUserEmailPassword, userData, googlePopUp} = useContext(CarContext);
+    const {createUserEmailPassword, userData, googlePopUp,serverUser} = useContext(CarContext);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const navigate =useNavigate();
     if(userData && userData?.email){
@@ -19,11 +20,29 @@ const Register = () => {
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
+            const emails = {
+              email: user.email,
+            };
+            // jwt
+            fetch('http://localhost:5000/jwt', {
+              method: "POST",
+              headers: {
+                'content-type': 'application/json',
+              },
+              body: JSON.stringify(emails)
+            })
+              .then(res => res.json())
+              .then(data => {
+                localStorage.setItem('key', data.token);
+                // console.log(data)
+              })
+              
             const userData={
                 email,
                 fullName,
                 select
             }
+            console.log(userData);
             fetch('http://localhost:5000/users',{
                 method: "POST",
                 headers:{
@@ -31,6 +50,8 @@ const Register = () => {
                 },
                 body:JSON.stringify(userData),
             })
+            .then(res=>res.json())
+            .then(data=>console.log(data))
             toast.success('Registered successfully');
             reset();
             // ...
@@ -51,8 +72,42 @@ const Register = () => {
             const token = credential.accessToken;
             // The signed-in user info.
             const user = result.user;
+            const userBuyer={
+              email: user?.email,
+              fullName: user?.displayName,
+              select: "Buyer",
+            }
+            console.log(user);
+            if(serverUser?.email !== user?.email){
+              fetch('http://localhost:5000/users',{
+                method: "POST",
+                headers:{
+                    'content-type':'application/json',
+                },
+                body:JSON.stringify(userBuyer),
+            })
+            .then(res=>res.json())
+            .then(data=>console.log(data))
+            }else{
+              swal("Hello Buyer", "Welcome to car buy-sell website");
+            }
+
+            const email = {
+              email: user.email,
+            };
             // userData
-           
+            fetch('http://localhost:5000/jwt', {
+              method: "POST",
+              headers: {
+                'content-type': 'application/json',
+              },
+              body: JSON.stringify(email)
+            })
+              .then(res => res.json())
+              .then(data => {
+                localStorage.setItem('key', data.token);
+                // console.log(data)
+              })
             toast.success('login successfully');
             // ...
           }).catch((error) => {

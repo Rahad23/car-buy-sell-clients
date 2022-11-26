@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
+// import { DayPicker } from 'react-day-picker';
 import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 const AddProduct = () => {
     const navigate = useNavigate();
     // use context get dataBase user Data
-    const {serverUser}=useContext(CarContext);
+    const {serverUser,userData}=useContext(CarContext);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     // react day picker
     const [selectedDate, setSelectedDate]=useState(new Date());
@@ -46,7 +46,8 @@ const AddProduct = () => {
                     company: select,
                     price:price,
                     userName:serverUser?.fullName,
-                    phone: phoneNumber
+                    phone: phoneNumber,
+                    sellerEmail: userData?.email,
                 }
                 if(select==="BMW"){
                     fetch('http://localhost:5000/bmw',{

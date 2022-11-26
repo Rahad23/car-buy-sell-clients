@@ -7,7 +7,11 @@ const [data, setData]=useState([]);
 const [loader, setLoader]=useState(true);
 // console.log(data);
     useEffect(()=>{
-        fetch('http://localhost:5000/bmw')
+        fetch('http://localhost:5000/bmw',{
+            headers:{
+                authorization: `bearer ${localStorage.getItem('myKey')}`
+            }
+        })
         .then(res=>res.json())
         .then(data=>setData(data))
     },[])
