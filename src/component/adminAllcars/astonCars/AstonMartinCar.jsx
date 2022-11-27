@@ -11,7 +11,8 @@ const AstonMartinCar = () => {
         })
         .then(res=>res.json())
         .then(data=>setData(data))
-    },[data])
+    },[data]);
+
     const orderDataHandle=(id)=>{
         swal({
             title: "Are you sure?",
@@ -20,7 +21,7 @@ const AstonMartinCar = () => {
             buttons: true,
             dangerMode: true,
           })
-          .then((willDelete) => {
+          .then((willDelete) =>{
             if (willDelete){
                 fetch(`http://localhost:5000/astonMartin/${id}`,{
                     method: "DELETE"
@@ -39,6 +40,9 @@ const AstonMartinCar = () => {
             }
           });
      }
+
+     
+
     //  show advertisement function
     const showAdvertis=(id)=>{
        fetch(`http://localhost:5000/astonMartin/${id}`)
@@ -60,6 +64,7 @@ const AstonMartinCar = () => {
         // console.log(data)
     })
     }
+
     return (
         <div className='container mx-auto mt-10'>
         <div className="overflow-x-auto">
@@ -92,7 +97,7 @@ const AstonMartinCar = () => {
                                         <button onClick={() => orderDataHandle(data?._id)} className="btn btn-sm bg-red-600 border-none">delete</button>
                                     </td>
                                     <td>
-                                    <button onClick={() => showAdvertis(data?._id)} className="btn btn-sm hover:bg-green-700 bg-green-600 border-none">show-add</button>
+                                          <button  onClick={() =>showAdvertis(data?._id)} className="btn btn-sm hover:bg-green-700 bg-green-600    border-none">show-ad</button>
                                     </td>
                                 </tr>
                         )

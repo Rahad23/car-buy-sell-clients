@@ -22,7 +22,6 @@ const AudiCars = () => {
           })
           .then((willDelete) => {
             if (willDelete){
-
                 fetch(`http://localhost:5000/audi/${id}`,{
                     method: "DELETE"
                 })

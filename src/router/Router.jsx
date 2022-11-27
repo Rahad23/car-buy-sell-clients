@@ -6,6 +6,8 @@ import AddProduct from "../component/addProduct/AddProduct";
 import AstonMartinCar from "../component/adminAllcars/astonCars/AstonMartinCar";
 import AudiCars from "../component/adminAllcars/audiCars/AudiCars";
 import BmwCars from "../component/adminAllcars/bmwCars/BmwCars";
+import Addelete from "../component/advertisement/adDelete/Addelete";
+import AdvertiseCard from "../component/advertisement/advertiseCard/AdvertiseCard";
 import AllUsers from "../component/allUsers/AllUsers";
 import AstonMartin from "../component/astonMartin/AstonMartin";
 import AstonMartinDetailCard from "../component/astonMartin/astonMartinDetailCard/AstonMartinDetailCard";
@@ -99,6 +101,10 @@ const router = createBrowserRouter([
             {
                 path: '/adminAston',
                 element: <AstonMartinCar></AstonMartinCar>
+            },
+            {
+                path:'/deleteAd',
+                element:<Addelete></Addelete>
             }
         ]
     }
