@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { swal } from 'sweetalert';
 
@@ -13,20 +14,49 @@ const Addelete = () => {
       })
       .then(res=>res.json())
       .then(data=>setAdCollection(data))
-  },[adCollection])
+  },[])
 
     const removeAdd=(id)=>{
-        fetch(`http://localhost:5000/advertise/${id}`,{
-            method: "DELETE"
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data?.acknowledged){
-                swal("Delete", "Advertisement delete successfully", "success");
+        const confirms = window.confirm('Dear admin you want to remove this ad')
+        if(!confirms){
+            return;
+        }
+
+        axios.post(`http://localhost:5000/advertise/delete`,{
+            id
+        },{
+            headers:{
+                'Content-Type':'application/json',
+                'Cross-Origin':'*',
+                "Access-Control-Allow-Origin":" http://localhost:5000"
             }
-            console.log(data)
         })
+        .then(res=>console.log(res))
+        .catch(e=>{
+            console.log(e);
+        })
+
+    //    if(confirms){
+    //     fetch(`http://localhost:5000/advertise/${id}`,{
+    //         method: "DELETE",
+    //         headers:{
+    //            'Access-Control-Allow-Origin':'*'
+    //         }
+    //     })
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         console.log(data);
+    //         if(data?.acknowledged){
+    //             swal("Delete", "Advertisement delete successfully", "success");
+    //         }
+    //         console.log(data)
+    //     })
+    //     .catch(e=>{
+    //         console.log(e);
+    //     })
+    //    }
     }
+
     return(
         <div className='container mx-auto mt-10'>
         <div className="overflow-x-auto">
