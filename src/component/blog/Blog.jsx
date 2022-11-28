@@ -32,6 +32,7 @@ const Blog = () => {
             </div>
             <div className="collapse rounded-xl mt-1">
             <input type="checkbox" className="peer" /> 
+            
             <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
          <h4 className='text-lg font-bold text-black'>  <span className='text-lg text-red-500 font-bold'>3:- </span> React vs. Angular vs. Vue?</h4>
             </div>
