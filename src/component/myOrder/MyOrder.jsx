@@ -42,7 +42,7 @@ if(isLoading){
                 {
                     myOrder.length >0 ? 
 
-<table className="table w-full">
+<table className="table lg:w-full">
     {/* <!-- head --> */}
     <thead>
       <tr>

@@ -8,8 +8,8 @@ const AdvertiseCard = ({data}) => {
     console.log(data);
     return (
         <div>
-            <div className="card card-side bg-base-100 shadow-xl mb-10">
-            <figure><img className='w-[400px]' src={img} alt="Movie"/></figure>
+            <div className="card lg:card-side bg-base-100 shadow-xl mb-10">
+            <figure><img className='w-[350px]' src={img} alt="Movie"/></figure>
             <div className="card-body">
                 <h2 className="card-title">{company+" "+ series}</h2>
                 <p className='text-md text-gray-900 font-normal'>{sortDetails}</p>

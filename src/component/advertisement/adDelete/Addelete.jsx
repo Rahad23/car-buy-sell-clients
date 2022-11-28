@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { json } from 'react-router-dom';
-import { swal } from 'sweetalert';
+import swal from 'sweetalert';
 
 const Addelete = () => {
 
@@ -18,54 +18,39 @@ const Addelete = () => {
   },[])
 
     const removeAdd= async(id)=>{
-        const confirms = window.confirm('Dear admin you want to remove this ad')
-        if(!confirms){
-            return;
-        }
-
-        // const {data}=await axios({method:"POST", data: {id}, url:'http://localhost:5000/advertise/delete'})
-        // console.log(data);
-        fetch(`http://localhost:5000/delete/${id}`,{
-            method:"DELETE",
-        })
-        .then(res=>res.json())
-        .then(data=>console.log(data))
-        .catch(e=>{
-            console.log(e)
-        })
-        // axios.post(`http://localhost:5000/advertise/delete`,{
-        //     id
-        // },{
-        //     headers:{
-        //         'Content-Type':'application/json',
-        //         'Cross-Origin':'*',
-        //         "Access-Control-Allow-Origin":" http://localhost:5000"
-        //     }
-        // })
-        // .then(res=>console.log(res))
-        // .catch(e=>{
-        //     console.log(e);
-        // })
-
-    //    if(confirms){
-    //     fetch(`http://localhost:5000/advertise/${id}`,{
-    //         method: "DELETE",
-    //         headers:{
-    //            'Access-Control-Allow-Origin':'*'
-    //         }
-    //     })
-    //     .then(res=>res.json())
-    //     .then(data=>{
-    //         console.log(data);
-    //         if(data?.acknowledged){
-    //             swal("Delete", "Advertisement delete successfully", "success");
-    //         }
-    //         console.log(data)
-    //     })
-    //     .catch(e=>{
-    //         console.log(e);
-    //     })
-    //    }
+   
+        swal({
+            title: "Are you sure?",
+            text: "Do you want to delete the ad form the home page",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                fetch(`http://localhost:5000/delete/${id}`,{
+                    method:"DELETE",
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data?.acknowledged){
+                        
+                    }
+                    console.log(data)
+                })
+                .catch(e=>{
+                    console.log(e)
+                })
+        
+              swal("This ad has been removed from the home page", {
+                icon: "success",
+              });
+            } else {
+              swal("Not deleted. The ad is still on the home page");
+            }
+          });
+       
+       
     }
 
     return(
