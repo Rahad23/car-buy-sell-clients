@@ -30,20 +30,20 @@ import ChackOutFrom from './../component/payment/chackOutfrom/ChackOutFrom';
 
 const router = createBrowserRouter([
     {
-        path:'/',
+        path: '/',
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
-        children:[
+        children: [
             {
                 path: '/',
-                element:<Home></Home>
+                element: <Home></Home>
             },
             {
                 path: '/login',
                 element: <Login></Login>
             },
             {
-                path:'/register',
+                path: '/register',
                 element: <Register></Register>
             },
             {
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
             {
                 path: '/bmwDetail/:id',
                 element: <CarDetailsBmw></CarDetailsBmw>,
-                loader: async({params})=>await fetch(`http://localhost:5000/bmwDetail/${params.id}`)
+                loader: async ({ params }) => await fetch(`https://car-server-eight.vercel.app/bmwDetail/${params.id}`)
             },
             {
                 path: '/Audi',
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
             {
                 path: '/AUDIdetail/:id',
                 element: <AudiDetails></AudiDetails>,
-                loader: async({params})=>await fetch(`http://localhost:5000/audi/${params.id}`)
+                loader: async ({ params }) => await fetch(`https://car-server-eight.vercel.app/audi/${params.id}`)
             },
             {
                 path: '/Aston-Martin',
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
             {
                 path: '/Aston-Martin/:id',
                 element: <AstonMartinDetailCard></AstonMartinDetailCard>,
-                loader: async({params})=>await fetch(`http://localhost:5000/astonMartin/${params.id}`)
+                loader: async ({ params }) => await fetch(`https://car-server-eight.vercel.app/astonMartin/${params.id}`)
             },
             {
                 path: '/myOrder',
@@ -83,15 +83,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myProduct',
-                element:<PrivateRoute><MyProduct></MyProduct></PrivateRoute>
+                element: <PrivateRoute><MyProduct></MyProduct></PrivateRoute>
             },
             {
-                path:'/users',
+                path: '/users',
                 element: <PrivateRoute><AllUsers></AllUsers></PrivateRoute>
             },
             {
                 path: '/totalOrder',
-                element:<PrivateRoute><TotalOrder></TotalOrder></PrivateRoute>
+                element: <PrivateRoute><TotalOrder></TotalOrder></PrivateRoute>
             },
             {
                 path: '/adminBmw',
@@ -106,14 +106,14 @@ const router = createBrowserRouter([
                 element: <AstonMartinCar></AstonMartinCar>
             },
             {
-                path:'/deleteAd',
-                element:<Addelete></Addelete>
+                path: '/deleteAd',
+                element: <Addelete></Addelete>
             },
             {
-                path:'/payment/:id',
+                path: '/payment/:id',
                 element: <ChackOutFrom></ChackOutFrom>,
-                loader: async({params})=> fetch(`http://localhost:5000/payment/${params.id}`,{
-                    headers:{
+                loader: async ({ params }) => fetch(`https://car-server-eight.vercel.app/payment/${params.id}`, {
+                    headers: {
                         authorization: `bearer ${localStorage.getItem('myKey')}`
                     }
                 })

@@ -8,7 +8,7 @@ const BmwCard = ({data,loader}) => {
     return (
         <div>
           <Link to={`/BMWdetail/${_id}`}>
-          <div className="card w-96 bg-base-100 shadow-xl">
+          <div className="card lg:w-96 w-80 mx-auto bg-base-100 shadow-xl">
             <figure><img src={img} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">

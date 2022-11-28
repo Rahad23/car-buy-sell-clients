@@ -11,8 +11,8 @@ const MyProduct = () => {
     const [astonProduct, setastonProduct] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bmwSeller/${userData?.email}`,{
-            headers:{
+        fetch(`https://car-server-eight.vercel.app/bmwSeller/${userData?.email}`, {
+            headers: {
                 authorization: `bearer ${localStorage.getItem('myKey')}`
             }
         })
@@ -21,8 +21,8 @@ const MyProduct = () => {
     }, [userData?.email])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/audiSeller/${userData?.email}`,{
-            headers:{
+        fetch(`https://car-server-eight.vercel.app/audiSeller/${userData?.email}`, {
+            headers: {
                 authorization: `bearer ${localStorage.getItem('myKey')}`
             }
         })
@@ -31,8 +31,8 @@ const MyProduct = () => {
     }, [userData?.email])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/astonSeller/${userData?.email}`,{
-            headers:{
+        fetch(`https://car-server-eight.vercel.app/astonSeller/${userData?.email}`, {
+            headers: {
                 authorization: `bearer ${localStorage.getItem('myKey')}`
             }
         })
@@ -43,7 +43,7 @@ const MyProduct = () => {
     const myAllProduct = [...bmwProduct, ...audiProduct, ...astonProduct];
 
     //    useEffect(()=>{
-    //     fetch('http://localhost:5000/myProduct',{
+    //     fetch('https://car-server-eight.vercel.app/myProduct',{
     //         method:"POST",
     //         headers:{
     //             'content-type':'application/json',

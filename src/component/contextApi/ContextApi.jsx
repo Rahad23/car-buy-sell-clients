@@ -2,56 +2,56 @@ import React, { createContext, useEffect, useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import app from './../../firebase/Firebase.init';
 
-export const CarContext=createContext();
+export const CarContext = createContext();
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
-const ContextApi = ({children}) => {
-// loader
-const [loader, setLoader]=useState(true);
-// userData
-const [userData, setUserData]=useState('');
-// user type data get database
-const [serverUser, setServerUsesr]= useState([]);
+const ContextApi = ({ children }) => {
+    // loader
+    const [loader, setLoader] = useState(true);
+    // userData
+    const [userData, setUserData] = useState('');
+    // user type data get database
+    const [serverUser, setServerUsesr] = useState([]);
     // create user email and password
-    const createUserEmailPassword=(email, password)=>{
+    const createUserEmailPassword = (email, password) => {
         setLoader(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
     // sign-in email and password
-    const loginUserEmailPassword=(email, password)=>{
+    const loginUserEmailPassword = (email, password) => {
         setLoader(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
     // sign-in user google popup
-    const googlePopUp=()=>{
+    const googlePopUp = () => {
         setLoader(true);
         return signInWithPopup(auth, googleProvider);
     }
     // sign-out user
-    const signOutuser=()=>{
+    const signOutuser = () => {
         return signOut(auth);
     }
     // user track
-    useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth, user=>{
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, user => {
             setLoader(false);
             setUserData(user);
         })
-        return ()=>unsubscribe();
-    },[])
+        return () => unsubscribe();
+    }, [])
 
     // user data
-    useEffect(()=>{
-        if(userData?.email){
-            fetch(`http://localhost:5000/users/${userData?.email}`,{
-                headers:{
+    useEffect(() => {
+        if (userData?.email) {
+            fetch(`https://car-server-eight.vercel.app/users/${userData?.email}`, {
+                headers: {
                     authorization: `bearer ${localStorage.getItem('myKey')}`
                 }
             })
-            .then(res=>res.json())
-            .then(data=>setServerUsesr(data))
+                .then(res => res.json())
+                .then(data => setServerUsesr(data))
         }
-    },[userData?.email])
+    }, [userData?.email])
 
     const provider = {
         createUserEmailPassword,
