@@ -20,10 +20,12 @@ import Login from "../component/login/Login";
 // import MyBuyers from "../component/myBuyers/MyBuyers";
 import MyOrder from "../component/myOrder/MyOrder";
 import MyProduct from "../component/myProduct/MyProduct";
+import Payment from "../component/payment/Payment";
 import PrivateRoute from "../component/privateRoute/PrivateRoute";
 import Register from "../component/register/Register";
 import TotalOrder from "../component/totalOrder/TotalOrder";
 import Main from './../component/main/Main';
+import ChackOutFrom from './../component/payment/chackOutfrom/ChackOutFrom';
 
 const router = createBrowserRouter([
     {
@@ -105,6 +107,15 @@ const router = createBrowserRouter([
             {
                 path:'/deleteAd',
                 element:<Addelete></Addelete>
+            },
+            {
+                path:'/payment/:id',
+                element: <ChackOutFrom></ChackOutFrom>,
+                loader: async({params})=> fetch(`http://localhost:5000/payment/${params.id}`,{
+                    headers:{
+                        authorization: `bearer ${localStorage.getItem('myKey')}`
+                    }
+                })
             }
         ]
     }

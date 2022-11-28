@@ -53,11 +53,13 @@ if(isLoading){
         <th>phone</th>
         <th>price</th>
         <th>action</th>
+        <th>payment</th>
       </tr>
     </thead>
     <tbody>
       {
         myOrder.map((data, i)=>
+        // console.log(data)
             <tr>
                 <th>{i + 1}</th>
         <th>
@@ -67,7 +69,14 @@ if(isLoading){
         <td>{data?.sellerName}</td>
         <td>{data?.sellerPhone}</td>
         <td>${data?.sellerPrice}</td>
-        <td><button onClick={()=>orderDataHandle(data?._id)} className="btn btn-sm bg-red-600 border-none">delete</button></td>
+        <td><button onClick={()=>orderDataHandle(data?._id)} disabled={data?.pay ? true : false} className="btn btn-sm bg-red-600 border-none">delete</button></td>
+        <td>
+            {
+    !data?.pay ? <Link to={`/payment/${data?._id}`} className="btn btn-sm bg-green-600 hover:bg-green-700 border-none">Pay-now</Link>
+    :
+    <p title='Payment-Completed' className='text-green-600 cursor-pointer font-bold text-lg'>Complete</p>
+            }
+            </td>
       </tr>
             )
       }

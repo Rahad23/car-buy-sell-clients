@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ContextApi from './component/contextApi/ContextApi';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Elements } from '@stripe/react-stripe-js';
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

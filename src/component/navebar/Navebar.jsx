@@ -151,6 +151,9 @@ select === "Seller" &&
              </>
             }
             {
+              userData && userData?.email &&
+              <>
+              {
               serverUser?.role && 
               <li>
                  <Link
@@ -162,6 +165,8 @@ select === "Seller" &&
                 All-Ad
               </Link>
               </li>
+            }
+              </>
             }
             <li>
               <Link

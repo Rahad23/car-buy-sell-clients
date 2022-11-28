@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { json } from 'react-router-dom';
 import { swal } from 'sweetalert';
 
 const Addelete = () => {
@@ -16,25 +17,35 @@ const Addelete = () => {
       .then(data=>setAdCollection(data))
   },[])
 
-    const removeAdd=(id)=>{
+    const removeAdd= async(id)=>{
         const confirms = window.confirm('Dear admin you want to remove this ad')
         if(!confirms){
             return;
         }
 
-        axios.post(`http://localhost:5000/advertise/delete`,{
-            id
-        },{
-            headers:{
-                'Content-Type':'application/json',
-                'Cross-Origin':'*',
-                "Access-Control-Allow-Origin":" http://localhost:5000"
-            }
+        // const {data}=await axios({method:"POST", data: {id}, url:'http://localhost:5000/advertise/delete'})
+        // console.log(data);
+        fetch(`http://localhost:5000/delete/${id}`,{
+            method:"DELETE",
         })
-        .then(res=>console.log(res))
+        .then(res=>res.json())
+        .then(data=>console.log(data))
         .catch(e=>{
-            console.log(e);
+            console.log(e)
         })
+        // axios.post(`http://localhost:5000/advertise/delete`,{
+        //     id
+        // },{
+        //     headers:{
+        //         'Content-Type':'application/json',
+        //         'Cross-Origin':'*',
+        //         "Access-Control-Allow-Origin":" http://localhost:5000"
+        //     }
+        // })
+        // .then(res=>console.log(res))
+        // .catch(e=>{
+        //     console.log(e);
+        // })
 
     //    if(confirms){
     //     fetch(`http://localhost:5000/advertise/${id}`,{
