@@ -41,8 +41,6 @@ const AstonMartinCar = () => {
           });
      }
 
-     
-
     //  show advertisement function
     const showAdvertis=(id)=>{
        fetch(`http://localhost:5000/astonMartin/${id}`)
@@ -58,7 +56,7 @@ const AstonMartinCar = () => {
         .then(res=>res.json())
         .then(data=>{
             if(data?.acknowledged){
-                swal("Make Admin", "Admin created successfully", "success");
+                swal("show Ad Home page", "successfully", "success");
             }
         })
         // console.log(data)

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const TotalOrder = () => {
     const [totalOrder, setTotalOrder] = useState([]);
@@ -19,7 +20,13 @@ const TotalOrder = () => {
             method: "DELETE"
         })
         .then(res=>res.json())
-        .then(data=>console.log(data))
+        .then(data=>{
+          if(data?.acknowledged){
+            if(data?.acknowledged){
+              swal("Success", "Order deleted", "success");
+          }
+          }
+        })
        }
     }
     return (

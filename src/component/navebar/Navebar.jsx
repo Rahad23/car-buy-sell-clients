@@ -179,14 +179,14 @@ select === "Seller" &&
               </Link>
             </li>
             <li>
-              <a
-                href="/"
+              <Link
+                to="/blog"
                 aria-label="Product pricing"
                 title="Product pricing"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
               {
@@ -238,14 +238,14 @@ select === "Seller" &&
                 <div className="p-5 bg-[#1B1B1B] border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         aria-label="Company"
                         title="Company"
                         className="inline-flex items-center"
                       >
                         <img className='w-[120px]' src={logo} alt="" />
-                      </a>
+                      </Link>
                     </div>
                     <div>
                       <button
@@ -266,14 +266,14 @@ select === "Seller" &&
                   <nav>
                     <ul className="space-y-4">
                       <li>
-                        <a
-                          href="/"
+                        <Link
+                          to="/"
                           aria-label="Our product"
                           title="Our product"
                           className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Home
-                        </a>
+                        </Link>
                       </li>
                       <li>
                         <a

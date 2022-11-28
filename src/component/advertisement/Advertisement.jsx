@@ -12,15 +12,21 @@ useEffect(()=>{
     })
     .then(res=>res.json())
     .then(data=>setAdd(data))
-},[])
+},[add])
     return (
-        <div className='mt-28 container mx-auto'>
+<>
+{
+            add.length && 
+            <div className='mt-28 container mx-auto'>
             <h1 className='text-2xl text-gray-900 font-bold text-center mb-8'>Advertisement</h1>
             {
                 add.map(data=><AdvertiseCard key={data?._id} data={data}></AdvertiseCard>)
             }
 
         </div>
+        }
+</>
+      
     );
 };
 

@@ -57,7 +57,7 @@ const showAdvertis=(id)=>{
      .then(res=>res.json())
      .then(data=>{
         if(data?.acknowledged){
-            swal("Make Admin", "Admin created successfully", "success");
+            swal("Show Ad Home Page", "successfully", "success");
         }
     })
      // console.log(data)

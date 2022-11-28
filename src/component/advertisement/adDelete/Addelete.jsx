@@ -18,7 +18,6 @@ const Addelete = () => {
   },[])
 
     const removeAdd= async(id)=>{
-   
         swal({
             title: "Are you sure?",
             text: "Do you want to delete the ad form the home page",
@@ -33,9 +32,7 @@ const Addelete = () => {
                 })
                 .then(res=>res.json())
                 .then(data=>{
-                    if(data?.acknowledged){
-                        
-                    }
+                   
                     console.log(data)
                 })
                 .catch(e=>{

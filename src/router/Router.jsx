@@ -13,6 +13,7 @@ import AstonMartin from "../component/astonMartin/AstonMartin";
 import AstonMartinDetailCard from "../component/astonMartin/astonMartinDetailCard/AstonMartinDetailCard";
 import Audi from "../component/audi/Audi";
 import AudiDetails from "../component/audi/audiDetails/AudiDetails";
+import Blog from "../component/blog/Blog";
 import CarDetails from "../component/carDetails/CarDetails";
 import ErrorPage from "../component/errorPage/ErrorPage";
 import Home from "../component/home/Home";
@@ -116,6 +117,10 @@ const router = createBrowserRouter([
                         authorization: `bearer ${localStorage.getItem('myKey')}`
                     }
                 })
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
         ]
     }
