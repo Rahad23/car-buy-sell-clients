@@ -22,11 +22,12 @@ import Login from "../component/login/Login";
 import MyOrder from "../component/myOrder/MyOrder";
 import MyProduct from "../component/myProduct/MyProduct";
 import Payment from "../component/payment/Payment";
-import PrivateRoute from "../component/privateRoute/PrivateRoute";
+// import PrivateRoute from "../component/privateRoute/PrivateRoute";
 import Register from "../component/register/Register";
 import TotalOrder from "../component/totalOrder/TotalOrder";
 import Main from './../component/main/Main';
 import ChackOutFrom from './../component/payment/chackOutfrom/ChackOutFrom';
+import PrivateRoute from './../component/privateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/bmwDetail/:id',
-                element: <CarDetailsBmw></CarDetailsBmw>,
+                element: <PrivateRoute><CarDetailsBmw></CarDetailsBmw></PrivateRoute>,
                 loader: async ({ params }) => await fetch(`https://car-server-eight.vercel.app/bmwDetail/${params.id}`)
             },
             {
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/AUDIdetail/:id',
-                element: <AudiDetails></AudiDetails>,
+                element: <PrivateRoute><AudiDetails></AudiDetails></PrivateRoute>,
                 loader: async ({ params }) => await fetch(`https://car-server-eight.vercel.app/audi/${params.id}`)
             },
             {
@@ -70,7 +71,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/Aston-Martin/:id',
-                element: <AstonMartinDetailCard></AstonMartinDetailCard>,
+                element: <PrivateRoute><AstonMartinDetailCard></AstonMartinDetailCard></PrivateRoute>,
                 loader: async ({ params }) => await fetch(`https://car-server-eight.vercel.app/astonMartin/${params.id}`)
             },
             {
